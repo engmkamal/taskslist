@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "taskslist-spfx-client-side-solution",
+    "id": "a2abba2f-9520-431b-8a6e-07606a79fcb0",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.17.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "taskslist-spfx description"
+      },
+      "longDescription": {
+        "default": "taskslist-spfx description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "taskslist-spfx Feature",
+        "description": "The feature that activates elements of the taskslist-spfx solution.",
+        "id": "5d373c3b-54c2-4a26-a707-cd5bfb5b9a45",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/taskslist-spfx.sppkg"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "taskslist-spfx",
+    "environment": "spo",
+    "framework": "none",
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.13.1",
+    "libraryName": "taskslist-spfx",
+    "libraryId": "c4a563cf-617e-449e-a8b1-04c0c2fa55cb",
+    "packageManager": "npm",
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

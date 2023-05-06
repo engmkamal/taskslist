@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "taskslist-spfx-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/taskslistSpfx/TaskslistSpfxWebPart.js",
+          "manifest": "./src/webparts/taskslistSpfx/TaskslistSpfxWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {
+    "myScript": {
+      "path": "./node_modules/taskslist/dist/taskslist/bundle.js",
+      "globalName": "MyScript"
+    }
+  },
+  "localizedResources": {
+    "TaskslistSpfxWebPartStrings": "lib/webparts/taskslistSpfx/loc/{locale}.js"
+  }
+}
