@@ -8,7 +8,7 @@ Short summary:
 A SharePoint SpFx app to view all tasks list assigned to or delegated to respective logged in user's stored in the SharePoint Tasks List.
 Used technologies: 1. SpFx, 2.React, 3. @pnp/sp version-3; 4. dataGrid 
  
-<p style="text-align: center;"><img src="https://github.com/engmkamal/taskscount/blob/main/src/webparts/taskscount/assets/taskslist_Output.jpg"></p>
+<p style="text-align: center;"><img src="https://github.com/engmkamal/taskslist/blob/main/taskslist-spfx/src/webparts/taskslistSpfx/assets/taskslist_Output.jpg"></p>
 
 ## Used SharePoint Framework Version
 
