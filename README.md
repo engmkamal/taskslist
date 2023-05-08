@@ -1,4 +1,6 @@
 # taskscount
+Please follow 'taskslist-spfx' as full and final app for this tasks list view with React.
+And 'taskslistNF-spfx' as full and final app for this tasks list view without no React or Angular framework.
 
 ## Summary
 
