@@ -124,7 +124,7 @@ export class PnPjsV3State implements IPnPjsV3State {
 
 export default class TaskslistSpfx extends React.Component<ITaskslistSpfxProps, IPnPjsV3State, {}> {
   
-  private LIST_NAME: string = "PTasks1";
+  private LIST_NAME: string = "Tasks";
   private _sp: SPFI;
   private gridApi:any;
 
@@ -151,15 +151,15 @@ export default class TaskslistSpfx extends React.Component<ITaskslistSpfxProps, 
 
       const response: IResponseItem[] | any = await this._sp.web.lists.getByTitle(this.LIST_NAME).items
       .orderBy("ID", false)
-      .filter("AssignedToId ne null or DelegateUserId ne null")
+      .filter("Status eq 'Pending' and (AssignedToId ne null or DelegateUserId ne null)")
       .select("AssignedToId", "DelegateUserId", "URL", "TaskId", "ProductName", "Category", "SubCategory", "Modified", "Author/ID", "Author/Title", "Status")
       .expand("Author")
       .top(100)()      
 
       const items: IRowData[] = await (response.filter((item: IRowData) => {
 
-        return (item.AssignedToId != null && item.AssignedToId.includes(userId )
-        || item.DelegateUserId != null && item.DelegateUserId.includes(userId))
+        return (item.Status == 'Pending' && (item.AssignedToId != null && item.AssignedToId.includes(userId ))
+        || item.Status == 'Pending' && (item.DelegateUserId != null && item.DelegateUserId.includes(userId)))
 
       }));
       
@@ -226,7 +226,7 @@ export default class TaskslistSpfx extends React.Component<ITaskslistSpfxProps, 
       const columnDefs: any = [
         { field: 'URL.Url', headerName: 'Action', width: 100, resizable: true,
         cellRenderer: function(params:any) {
-          return <a href={params.value} target="_blank">View</a> ;
+          return <a href={params.value} target = "_self">View</a> ;
         }
         },
         { field: 'ProductName', filter: 'agSetColumnFilter', enableRowGroup: true, resizable: true,},
@@ -275,15 +275,15 @@ export default class TaskslistSpfx extends React.Component<ITaskslistSpfxProps, 
 
       const response: IResponseItem[] | any = await this._sp.web.lists.getByTitle(this.LIST_NAME).items
       .orderBy("ID", false)
-      .filter("AssignedToId ne null or DelegateUserId ne null")
+      .filter("Status eq 'Pending' and (AssignedToId ne null or DelegateUserId ne null)")
       .select("AssignedToId", "DelegateUserId", "URL", "TaskId", "ProductName", "Category", "SubCategory", "Modified", "Author/ID", "Author/Title", "Status")
       .expand("Author")
       .top(500)()      
 
       const items: IRowData[] = await (response.filter((item: IRowData) => {
 
-        return (item.AssignedToId != null && item.AssignedToId.includes(userId )
-        || item.DelegateUserId != null && item.DelegateUserId.includes(userId))
+        return (item.Status == 'Pending' && (item.AssignedToId != null && item.AssignedToId.includes(userId ))
+        || item.Status == 'Pending' && (item.DelegateUserId != null && item.DelegateUserId.includes(userId)))
 
       }));
       
@@ -303,15 +303,15 @@ export default class TaskslistSpfx extends React.Component<ITaskslistSpfxProps, 
 
       const response: IResponseItem[] | any = await this._sp.web.lists.getByTitle(this.LIST_NAME).items
       .orderBy("ID", false)
-      .filter("AssignedToId ne null or DelegateUserId ne null")
+      .filter("Status eq 'Pending' and (AssignedToId ne null or DelegateUserId ne null)")
       .select("AssignedToId", "DelegateUserId", "URL", "TaskId", "ProductName", "Category", "SubCategory", "Modified", "Author/ID", "Author/Title", "Status")
       .expand("Author")
       .top(5000)()      
 
       const items: IRowData[] = await (response.filter((item: IRowData) => {
 
-        return (item.AssignedToId != null && item.AssignedToId.includes(userId )
-        || item.DelegateUserId != null && item.DelegateUserId.includes(userId))
+        return (item.Status == 'Pending' && (item.AssignedToId != null && item.AssignedToId.includes(userId ))
+        || item.Status == 'Pending' && (item.DelegateUserId != null && item.DelegateUserId.includes(userId)))
 
       }));
       
@@ -330,15 +330,14 @@ export default class TaskslistSpfx extends React.Component<ITaskslistSpfxProps, 
       const userId = await user.Id; 
 
       const response: IResponseItem[] | any = await this._sp.web.lists.getByTitle(this.LIST_NAME).items
-      .filter("AssignedToId ne null or DelegateUserId ne null")
       .select("AssignedToId", "DelegateUserId", "URL", "TaskId", "ProductName", "Category", "SubCategory", "Modified", "Author/ID", "Author/Title", "Status")
       .expand("Author")
       .getAll();
 
       const items: IRowData[] = await (response.filter((item: IRowData) => {
 
-        return (item.AssignedToId != null && item.AssignedToId.includes(userId )
-        || item.DelegateUserId != null && item.DelegateUserId.includes(userId))
+        return (item.Status == 'Pending' && (item.AssignedToId != null && item.AssignedToId.includes(userId ))
+        || item.Status == 'Pending' && (item.DelegateUserId != null && item.DelegateUserId.includes(userId)))
 
       }));
       
